@@ -1,4 +1,4 @@
-# CHAT Programowanie https://img.shields.io/badge/language-python-brightgreen https://img.shields.io/badge/license-MIT-blue https://img.shields.io/badge/version-0.0.1-green
+# CHAT Programowanie ![](https://img.shields.io/badge/language-python-brightgreen) ![](https://img.shields.io/badge/license-MIT-blue) ![](https://img.shields.io/badge/version-0.0.1-green)
 
 ### v0.0.1
 - Zaktualizowane README

@@ -1,10 +1,10 @@
-# CHAT Programowanie
+# CHAT Programowanie https://img.shields.io/badge/language-python-brightgreen https://img.shields.io/badge/license-MIT-blue https://img.shields.io/badge/version-0.0.1-green
 
-v0.0.0
+### v0.0.1
 - Zaktualizowane README
 
 
-Aplikacja ma umożliwić:
+### Features:
 - wysyłanie wiadomości na serwer
 - dołączanie anonimowe
 - rejestracja i logowanie
@@ -12,7 +12,7 @@ Aplikacja ma umożliwić:
 - rozmowy prywatne z użytkownikami
 - spis rozmów
 
-##### Autorzy
+### Autorzy
 - Stanisław Piechota
 - Kacper Wadas
 - Wojciech Baraniak

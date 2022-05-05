@@ -1,21 +1,25 @@
 from tkinter import *
+from tkinter import ttk
 from functools import partial
 
 import appbar as ab
 import functions as f
 import users
-
+from texts import greeting
 CL = ab.CL
+
 
 # main window
 root = Tk()
 ab.config_window(root)
+
 
 # main frames
 title_bar = Frame(root, bg=CL[0], relief='raised', bd=0, highlightthickness=0)
 main_frame = Frame(root, bg=CL[3])
 title_bar.pack(fill=X)
 main_frame.pack(fill=BOTH, expand=True)
+
 
 # appbar widgets
 close_button = Button(title_bar, text=' × ', command=root.destroy, bg=CL[0], padx=2,
@@ -57,9 +61,19 @@ join_nav.place(x=0, y=0, relwidth=0.2, relheight=1)
 users_nav = Frame(main_screen, bg=CL[2])
 # TODO: users list
 users_nav.place(relx=0.85, rely=0, relwidth=0.15, relheight=1)
+
+chat_frame = Frame(main_screen, bg=CL[3])
+greeting_label = Label(chat_frame, font=f.ft(10), bg=CL[3], fg=CL[0], text=greeting, justify=CENTER)
+greeting_label.place(relx=0, rely=0, relwidth=1, relheight=0.15)
+# TODO: fix BUG - text_field not responsive
+text_field = Entry(chat_frame, font=f.ft(12), bg=CL[1], fg='white', bd=1)
+text_field.place(relx=0.1, rely=0.9, relwidth=0.8, relheight=0.05)
+chat_frame.place(relx=0.2, rely=0, relwidth=0.65, relheight=1)
+
 users_button = Button(main_screen, bd=0, bg=CL[1], fg=CL[0], text="Członkowie", font=f.ft(12),
-                      command=partial(users.toggle_nav_visibility, users_nav, root))
+                      command=partial(users.toggle_nav_visibility, users_nav, chat_frame, root))
 users_button.place(relx=0.86, rely=0.02, relwidth=0.13, relheight=0.06)
+
 
 # resizing widgets
 resize_x_widget = Frame(main_frame, bg=CL[3], cursor='sb_h_double_arrow')

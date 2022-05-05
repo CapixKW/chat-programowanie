@@ -19,5 +19,5 @@ host: https://najlepszawgalaktyce.000webhostapp.com/chat
    Parameter    value    requested
    None
 
-   Response type: List[String]
+   Response type: (JSON) List[String]
 

@@ -3,6 +3,7 @@ from functools import partial
 
 import appbar as ab
 import functions as f
+import users
 
 CL = ab.CL
 
@@ -45,7 +46,7 @@ minimize_button.bind('<Leave>', ab.change_normal)
 main_screen = Frame(main_frame, bg=CL[3])
 main_screen.place(x=0, y=0, relwidth=1, relheight=1)
 
-join_nav = Frame(main_frame, bg=CL[1])
+join_nav = Frame(main_screen, bg=CL[1])
 add_room_button = Button(join_nav, bd=0, bg=CL[1], fg=CL[0], text="Utwórz pokój", font=f.ft(12), command=None)
 add_room_button.place(relx=0, rely=0, relwidth=1, relheight=0.05)
 join_room_button = Button(join_nav, bd=0, bg=CL[1], fg=CL[0], text="Dołącz do czatu", font=f.ft(12), command=None)
@@ -53,17 +54,18 @@ join_room_button.place(relx=0, rely=0.05, relwidth=1, relheight=0.05)
 # TODO: chats list
 join_nav.place(x=0, y=0, relwidth=0.2, relheight=1)
 
-users_nav = Frame(main_frame, bg=CL[2])
-users_button = Button(users_nav, bd=0, bg=CL[1], fg=CL[0], text="Członkowie", font=f.ft(12), command=None)
-users_button.place(relx=0.1, rely=0.025, relwidth=0.8, relheight=0.075)
+users_nav = Frame(main_screen, bg=CL[2])
 # TODO: users list
 users_nav.place(relx=0.85, rely=0, relwidth=0.15, relheight=1)
-
+users_button = Button(main_screen, bd=0, bg=CL[1], fg=CL[0], text="Członkowie", font=f.ft(12),
+                      command=partial(users.toggle_nav_visibility, users_nav, root))
+users_button.place(relx=0.86, rely=0.02, relwidth=0.13, relheight=0.06)
 
 # resizing widgets
 resize_x_widget = Frame(main_frame, bg=CL[3], cursor='sb_h_double_arrow')
 resize_x_widget.pack(side=RIGHT, ipadx=2, fill=Y)
 resize_x_widget.bind("<B1-Motion>", partial(ab.resize_x, root))
+Frame(main_frame, bg=CL[3]).pack(side=LEFT, ipadx=2, fill=Y)  # symmetry
 resize_y_widget = Frame(main_frame, bg=CL[3], cursor='sb_v_double_arrow')
 resize_y_widget.pack(side=BOTTOM, ipady=2, fill=X)
 resize_y_widget.bind("<B1-Motion>", partial(ab.resize_y, root))

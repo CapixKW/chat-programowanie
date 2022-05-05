@@ -5,12 +5,12 @@ from functools import partial
 CL = ['#C4C4C4', '#494C57', '#41444C', '#35383E', '#D5D5D5']
 
 
-def config_window(root, bg):
+def config_window(root):
     # Necessary attributes to make appbar work
 
     root.geometry('1280x720+75+75')
     root.overrideredirect(True)
-    root['bg'] = bg
+    root['bg'] = CL[3]
     root.title('CHAT')
 
     root.minimized = False
@@ -85,38 +85,38 @@ def resize_x(root, event):
     x_win = root.winfo_x()
     difference = (event.x_root - x_win) - root.winfo_width()
 
-    if root.winfo_width() > 150:
+    if root.winfo_width() > 650:
         try:
             root.geometry(f"{ root.winfo_width() + difference }x{ root.winfo_height() }")
         except Exception as e:
             print(e)
     else:
-        if difference > 0: # so the window can't be too small (150x150)
+        if difference > 0:
             try:
                 root.geometry(f"{ root.winfo_width() + difference }x{ root.winfo_height() }")
             except Exception as e:
                 print(e)
 
-    event.widget.config(bg=CL[1])
+    event.widget.config(bg=CL[3])
 
 
 def resize_y(root, event):
     y_win = root.winfo_y()
     difference = (event.y_root - y_win) - root.winfo_height()
 
-    if root.winfo_height() > 150: # 150 is the minimum height for the window
+    if root.winfo_height() > 350:
         try:
             root.geometry(f"{ root.winfo_width()  }x{ root.winfo_height() + difference}")
         except Exception as e:
             print(e)
     else:
-        if difference > 0: # so the window can't be too small (150x150)
+        if difference > 0:
             try:
                 root.geometry(f"{ root.winfo_width()  }x{ root.winfo_height() + difference}")
             except Exception as e:
                 print(e)
 
-    event.widget.config(bg=CL[1])
+    event.widget.config(bg=CL[3])
 
 
 # moving window while avoiding cursor position change

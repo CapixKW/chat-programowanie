@@ -44,7 +44,6 @@ def minimize(root):
 
 
 def deminimize(root, event):
-    root.focus()
     root.attributes("-alpha", 1)
     if root.minimized:
         root.minimized = False

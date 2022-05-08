@@ -1,4 +1,4 @@
-# CHAT Programowanie ![](https://img.shields.io/badge/language-python-brightgreen) ![](https://img.shields.io/badge/license-MIT-blue) ![](https://img.shields.io/badge/version-0.1.0-green)
+# CHAT Programowanie ![](https://img.shields.io/badge/language-python-brightgreen) ![](https://img.shields.io/badge/license-MIT-blue) ![](https://img.shields.io/badge/version-0.1.1-green)
 
 ### Funkcjonalności:
 - wysyłanie wiadomości na serwer
@@ -15,6 +15,9 @@
 - Jakub Figwer
 
 ### Dziennik zmian
+#### v0.1.1
+- naprawa pola tekstowego
+- pozostałe widgety czatu
 #### v0.1.0
 - Animacja sekcji użytkowników
 #### v0.0.3

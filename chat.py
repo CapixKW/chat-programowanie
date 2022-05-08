@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 from functools import partial
 
 import appbar as ab
@@ -65,9 +64,12 @@ users_nav.place(relx=0.85, rely=0, relwidth=0.15, relheight=1)
 chat_frame = Frame(main_screen, bg=CL[3])
 greeting_label = Label(chat_frame, font=f.ft(10), bg=CL[3], fg=CL[0], text=greeting, justify=CENTER)
 greeting_label.place(relx=0, rely=0, relwidth=1, relheight=0.15)
-# TODO: fix BUG - text_field not responsive
-text_field = Entry(chat_frame, font=f.ft(12), bg=CL[1], fg='white', bd=1)
-text_field.place(relx=0.1, rely=0.9, relwidth=0.8, relheight=0.05)
+text_field = Entry(chat_frame, font=f.ft(12), bg=CL[1], fg='white', bd=0)
+text_field.place(relx=0.05, rely=0.9, relwidth=0.75, relheight=0.05)
+send_button = Button(chat_frame, bg=CL[0], fg=CL[1], text='⏵', font=f.ft(15), bd=0)
+send_button.place(relx=0.825, relwidth=0.05, rely=0.9, relheight=0.05)
+photo_button = Button(chat_frame, bg=CL[0], fg=CL[1], text='+', font=f.ft(15), bd=0)
+photo_button.place(relx=0.9, relwidth=0.05, rely=0.9, relheight=0.05)
 chat_frame.place(relx=0.2, rely=0, relwidth=0.65, relheight=1)
 
 users_button = Button(main_screen, bd=0, bg=CL[1], fg=CL[0], text="Członkowie", font=f.ft(12),

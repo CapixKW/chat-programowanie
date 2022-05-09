@@ -1,9 +1,11 @@
 from tkinter import *
 from functools import partial
+from threading import Thread
 
 import appbar as ab
 import functions as f
 import users
+import network as net
 from texts import greeting
 CL = ab.CL
 
@@ -21,7 +23,7 @@ main_frame.pack(fill=BOTH, expand=True)
 
 
 # appbar widgets
-close_button = Button(title_bar, text=' × ', command=root.destroy, bg=CL[0], padx=2,
+close_button = Button(title_bar, text=' × ', command=partial(ab.close_window, root), bg=CL[0], padx=2,
                       pady=2, bd=0, fg=CL[1], highlightthickness=0)
 expand_button = Button(title_bar, text=' ■ ', bg=CL[0], padx=2,
                        pady=2, bd=0, fg=CL[1], highlightthickness=0)
@@ -85,5 +87,10 @@ Frame(main_frame, bg=CL[3]).pack(side=LEFT, ipadx=2, fill=Y)  # symmetry
 resize_y_widget = Frame(main_frame, bg=CL[3], cursor='sb_v_double_arrow')
 resize_y_widget.pack(side=BOTTOM, ipady=2, fill=X)
 resize_y_widget.bind("<B1-Motion>", partial(ab.resize_y, root))
+
+
+messages_thread = Thread(target=net.messages_thread, args=(root, ))
+messages_thread.start()
+
 
 root.mainloop()

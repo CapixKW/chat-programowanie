@@ -18,6 +18,12 @@ def config_window(root):
 
     root.bind("<FocusIn>", partial(deminimize, root))
     root.after(10, lambda: set_app_window(root))
+    root.message_get = True
+
+
+def close_window(root):
+    root.message_get = False
+    root.destroy()
 
 
 def set_app_window(main_window):
